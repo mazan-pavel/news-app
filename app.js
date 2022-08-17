@@ -102,7 +102,7 @@ function loadNews() {
 
 //function on get response
 function getResponse(err, response) {
-  removePreloader();
+ 
   if (err) {
     showMessage(err, 'error-msg');
     return;
@@ -112,6 +112,7 @@ function getResponse(err, response) {
     return;
   }
   renderNews(response.articles);
+   removePreloader();
 }
 
 function clearConataner(container) {
@@ -173,7 +174,6 @@ function showLoader() {
 
 function removePreloader() {
   const loader = document.querySelector('.progress-wrap');
-  document.querySelector(".progress").loader.classList.remove("progress");
   if (loader) {
     loader.remove();
   }
